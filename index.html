@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Dignosis show</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<header>
+    <h1>Best match place for you !!</h1>
+</header>
+<div id="branding">
+  <p>Recommendation for you.</p>
+</div>
+<nav>
+  <ul>
+    <li><a href="#">place A</a></li>
+    <li><a href="#">place B</a></li>
+    <li><a href="#">place C</a></li>
+    <li><a href="#">place D</a></li>
+  </ul>
+</nav>
+<section>
+<script>
+document.write('<input id="searchText" type="text">');
+document.write('<input id="searchButton" type="button" value="Search" onclick="googleImageSearchAPI()"><br/>')
+document.write('<img id="image">');
+
+function googleImageSearchAPI(){
+	var text = document.getElementById("searchText").value;
+	var script = document.createElement('script');
+	script.src = "http://ajax.googleapis.com/ajax/services/search/images?callback=cb&q="+text+"&v=1.0";
+	document.head.appendChild(script);
+}
+function cb(d){
+	var image=d.responseData.results[0].url;
+	document.getElementById("image").src=image;
+}
+</script>
+<article>
+  <span class="date">ここに日付</span>
+  <h2>See Description</h2>
+  <p>
+  </p>
+  <a href="#" class="btn">&gt;もっと見る</a>
+</article>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">拡散</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter">
+　<a href="//twitter.com/share" class="twitter-share-button" data-text="ぜひ拡散してね！！！あなたの行きたい都市は？？" data-url="<!-- ここにTweetしたときに入れたいURLを入れる -->" data-lang="ja<!-- 日本語の場合 -->">
+みんなに広めよう！！！
+</a>
+</div>
+</section>
+<footer>
+<address>Copyright(C) Wonder Trip ,All Rights Reserved.</address>
+</footer>
+</body>
+</html>
